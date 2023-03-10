@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, Navigate } from "react-router-dom";
+import { PrivateRoute, PublicRoute } from "./routes";
+import { DashboardPage, LoginPage, SignupPage } from "./pages";
+import { Layout } from "./components/Layout/Layout";
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Navigate to={"dashboard"} />} />
+          <Route
+            path="dashboard"
+            element={
+              <PrivateRoute redirectTo={"/login"}>
+                <DashboardPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <PublicRoute restricted redirectTo={"/dashboard"}>
+                <LoginPage />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="signup"
+            element={
+              <PublicRoute restricted redirectTo={"/dashboard"}>
+                <SignupPage />
+              </PublicRoute>
+            }
+          />
+          <Route path="*" element={<div>not found</div>} />
+        </Route>
+      </Routes>
+    </>
   );
-}
-
-export default App;
+};
