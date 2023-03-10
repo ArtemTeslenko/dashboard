@@ -23,15 +23,16 @@ const IndicatorExtBox = styled.div`
   align-items: center;
   width: 24px;
   height: 24px;
+  border: none;
   background-color: ${({ bgColor }) => bgColor};
-  border-radius: 4px;
+  border-radius: 3px;
 `;
 
 const IndicatorIntBox = styled.div`
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border: 2px solid #242731;
-  border-radius: 4px;
+  border-radius: 3px;
   background-color: ${({ isActive }) => (isActive ? "transparent" : "#242731")};
 `;
 

@@ -1,7 +1,7 @@
 import { Formik, Form, useFormik } from "formik";
 import { loginUser, useUser } from "../../utils";
 import { LoginBtn } from "./LoginBtn";
-import { LoginFormBox, LoginFormInput } from "./LoginForm.styled";
+import { FormBox, FormInput } from "../../CommonStyles";
 
 export const LoginForm = () => {
   const { handleTokenValue } = useUser();
@@ -19,10 +19,10 @@ export const LoginForm = () => {
   });
 
   return (
-    <LoginFormBox>
+    <FormBox>
       <Formik>
         <Form onSubmit={formik.handleSubmit}>
-          <LoginFormInput
+          <FormInput
             type="text"
             id="email"
             name="email"
@@ -30,7 +30,7 @@ export const LoginForm = () => {
             value={formik.values.email}
             placeholder="Email"
           />
-          <LoginFormInput
+          <FormInput
             type="text"
             id="password"
             name="password"
@@ -41,6 +41,6 @@ export const LoginForm = () => {
           <LoginBtn />
         </Form>
       </Formik>
-    </LoginFormBox>
+    </FormBox>
   );
 };

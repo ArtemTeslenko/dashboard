@@ -1,6 +1,6 @@
 import { Formik, Form, useFormik } from "formik";
 import { SignupBtn } from "./SignupBtn";
-import { SignupFormBox, SignupFormInput } from "./SignupForm.styled";
+import { FormBox, FormInput } from "../../CommonStyles";
 import { signupUser, useUser } from "../../utils";
 
 export const SignupForm = () => {
@@ -23,10 +23,10 @@ export const SignupForm = () => {
   });
 
   return (
-    <SignupFormBox>
+    <FormBox>
       <Formik>
         <Form onSubmit={formik.handleSubmit}>
-          <SignupFormInput
+          <FormInput
             type="text"
             id="name"
             name="name"
@@ -34,7 +34,7 @@ export const SignupForm = () => {
             value={formik.values.name}
             placeholder="Name"
           />
-          <SignupFormInput
+          <FormInput
             type="text"
             id="email"
             name="email"
@@ -42,7 +42,7 @@ export const SignupForm = () => {
             value={formik.values.email}
             placeholder="Email"
           />
-          <SignupFormInput
+          <FormInput
             type="text"
             id="password"
             name="password"
@@ -53,6 +53,6 @@ export const SignupForm = () => {
           <SignupBtn />
         </Form>
       </Formik>
-    </SignupFormBox>
+    </FormBox>
   );
 };

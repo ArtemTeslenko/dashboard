@@ -1,23 +1,26 @@
+import { MainContainer } from "../../CommonStyles";
 import {
-  SignupBox,
-  SignupRedirect,
-  SignupRedirectLink,
-  SignupRedirectText,
-  SignupTitle,
-  SignupUrge,
-} from "./Signup.styled";
+  Box,
+  Redirect,
+  RedirectLink,
+  RedirectText,
+  Title,
+  Urge,
+} from "../../CommonStyles";
 import { SignupForm } from "./SignupForm";
 
 export const Signup = () => {
   return (
-    <SignupBox>
-      <SignupTitle>Welcome</SignupTitle>
-      <SignupUrge>Welcome! Please enter your details</SignupUrge>
-      <SignupForm />
-      <SignupRedirect>
-        <SignupRedirectText>Or </SignupRedirectText>
-        <SignupRedirectLink to="/login">Log in</SignupRedirectLink>
-      </SignupRedirect>
-    </SignupBox>
+    <MainContainer>
+      <Box>
+        <Title>Welcome</Title>
+        <Urge>Welcome! Please enter your details</Urge>
+        <SignupForm />
+        <Redirect>
+          <RedirectText>Or </RedirectText>
+          <RedirectLink to="/login">Log in</RedirectLink>
+        </Redirect>
+      </Box>
+    </MainContainer>
   );
 };

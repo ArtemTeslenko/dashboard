@@ -1,23 +1,26 @@
+import { MainContainer } from "../../CommonStyles";
 import {
-  LoginBox,
-  LoginRedirect,
-  LoginRedirectLink,
-  LoginRedirectText,
-  LoginTitle,
-  LoginUrge,
-} from "./Login.styled";
+  Box,
+  Redirect,
+  RedirectLink,
+  RedirectText,
+  Title,
+  Urge,
+} from "../../CommonStyles";
 import { LoginForm } from "./LoginForm";
 
 export const Login = () => {
   return (
-    <LoginBox>
-      <LoginTitle>Welcome back</LoginTitle>
-      <LoginUrge>Welcome back! Please enter your details</LoginUrge>
-      <LoginForm />
-      <LoginRedirect>
-        <LoginRedirectText>Or </LoginRedirectText>
-        <LoginRedirectLink to="/signup">Sign up</LoginRedirectLink>
-      </LoginRedirect>
-    </LoginBox>
+    <MainContainer>
+      <Box>
+        <Title>Welcome back</Title>
+        <Urge>Welcome back! Please enter your details</Urge>
+        <LoginForm />
+        <Redirect>
+          <RedirectText>Or </RedirectText>
+          <RedirectLink to="/signup">Sign up</RedirectLink>
+        </Redirect>
+      </Box>
+    </MainContainer>
   );
 };
